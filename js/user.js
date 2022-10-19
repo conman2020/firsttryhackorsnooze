@@ -19,12 +19,19 @@ async function login(evt) {
 
   // User.login retrieves user info from API and returns User instance
   // which we'll make the globally-available, logged-in user.
+  try{
   currentUser = await User.login(username, password);
 
   $loginForm.trigger("reset");
 
   saveUserCredentialsInLocalStorage();
   updateUIOnUserLogin();
+  }
+  catch(e){
+    if(e.response){
+      alert('invalid username and pasword')
+    }
+  }
 }
 
 $loginForm.on("submit", login);

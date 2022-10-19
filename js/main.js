@@ -18,6 +18,7 @@ const $myFavedStories= $("#favorited-stories");
 const $loginUser = $("#loginuser");
 const $userProfile = $("#user-profile");
 const $logOut = $("#nav-logout");
+const $Profile= $("#user-profile-box container")
 
 
 /** To make it easier for individual components to show just themselves, this

@@ -70,8 +70,10 @@ async function toggleStoryFavorite(evt) {
     $tgt.closest("i").toggleClass("fas far");
   }
 }
+async function removeStory(){
+  
+}
 
-$allStoriesList.on("click", ".star", toggleStoryFavorite);
 /** Gets list of stories from server, generates their HTML, and puts on page. */
 async function deleteStory(evt) {
   console.debug("deleteStory");
@@ -79,7 +81,7 @@ async function deleteStory(evt) {
   const $closestLi = $(evt.target).closest("li");
   const storyId = $closestLi.attr("id");
 
-  await storyList.removeStory(currentUser, storyId);
+  await removeStory(currentUser, storyId);
 
   // re-generate story list
   await putUserStoriesOnPage();
@@ -159,10 +161,10 @@ function putFavoritesListOnPage() {
 function putUserStoriesOnPage() {
   console.debug("putUserStoriesOnPage");
 
-  $ownStories.empty();
+  $myStories.empty();
 
   if (currentUser.ownStories.length === 0) {
-    $ownStories.append("<h5>No stories added by user yet!</h5>");
+    $myStories.append("<h5>No stories added by user yet!</h5>");
   } else {
     // loop through all of users stories and generate HTML for them
     for (let story of currentUser.ownStories) {

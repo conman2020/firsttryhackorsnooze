@@ -65,3 +65,11 @@ function updateNavOnLogin() {
   $logOut.show();
   $userProfile.text(`${currentUser.username}`).show();
 }
+
+function navigateToProfile(){
+  console.debug('update-profile');
+  hidePageComponents();
+  $Profile.show();
+
+
+}

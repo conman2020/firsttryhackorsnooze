@@ -86,6 +86,21 @@ class StoryList {
 
     // UNIMPLEMENTED: complete this function!
   }
+  async removeStory(user, storyId){
+    this.stories = this.stories.filter((s) => s.storyId !== id);
+
+    const res = await axios({
+      url: `${BASE_URL}/stories/${id}`,
+      data: {
+        token: user.loginToken,
+      },
+      method: 'DELETE'
+    });
+
+    console.log(res.data.message);
+
+  }
+  
 }
 
 
